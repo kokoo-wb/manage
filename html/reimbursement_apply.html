@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1、如果支持Google Chrome Frame：GCF，则使用GCF渲染；2、如果系统安装ie8或以上版本，则使用最高版本ie渲染；3、否则，这个设定可以忽略。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 对视窗缩放等级进行限制，使其适应移动端屏幕大小 -->
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 当把这个网页添加到主屏幕时的标题（仅限IOS） -->
+    <meta name="apple-mobile-web-app-title" content="触电-itouchtv">
+    <!-- 添加到主屏幕后全屏显示 -->
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <!--去除safari中number下划线-->
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/reimbursement_apply.css" />
+
+    <title>费用报销申请</title>
+
+    <script>
+        initScreen();
+        window.onresize = function() {
+            initScreen();
+        }
+
+        function defaultfont() {
+            var sw = document.documentElement.clientWidth;
+            var pw = 750;
+            sw = sw > 750 ? 750 : sw < 320 ? 320 : sw;
+            var f = 100 * sw / pw;
+            document.documentElement.style.fontSize = f + 'px';
+        }
+
+        function initScreen() {
+            defaultfont();
+            setTimeout(function() {
+                defaultfont();
+            }, 100);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span>费用报销申请</span>
+            <a class="back-btn"></a>
+        </div>
+
+        <div class="form-item choose-btn no-border">
+            <span class="require">重要等级</span>
+            <input type="text" id="level" placeholder="请选择" value="" />
+            <input type="hidden" id="levelValue" name="levelValue" value="" />
+        </div>
+
+        <ul class="reimbursement-box">
+            <li class="reimbursement-item-box">
+                <div class="reimbursement-op">
+                    <span>报销明细</span>
+                    <a>删除</a>
+                </div>
+                <div class="form-item">
+                    <span class="require">报销金额</span>
+                    <input type="text" placeholder="请输入数字" />
+                </div>
+                <div class="form-item choose-btn no-border">
+                    <span class="require">关联项目</span>
+                    <input type="text" class="project" placeholder="请选择项目或任务" value="" />
+                    <input type="hidden" class="project-value" name="memberValue" value="" />
+                </div>
+                <div class="form-desc no-border">
+                    <p>费用明细</p>
+                    <textarea placeholder="请输入"></textarea>
+                </div>
+            </li>
+
+            <li class="reimbursement-item-box">
+                <div class="reimbursement-op">
+                    <span>报销明细</span>
+                    <a>删除</a>
+                </div>
+                <div class="form-item">
+                    <span class="require">报销金额</span>
+                    <input type="text" placeholder="请输入数字" />
+                </div>
+                <div class="form-item choose-btn no-border">
+                    <span class="require">关联项目</span>
+                    <input type="text" class="project" placeholder="请选择项目或任务" value="" />
+                    <input type="hidden" class="project-value" name="memberValue" value="" />
+                </div>
+                <div class="form-desc no-border">
+                    <p>费用明细</p>
+                    <textarea placeholder="请输入"></textarea>
+                </div>
+            </li>
+        </ul>
+
+
+        <a class="add-reimbursement-btn">+增加报销明细</a>
+
+        <div class="form-item">
+            <span>总报销金额(元)</span>
+            <span>0</span>
+        </div>
+
+        <div class="form-desc">
+            <p>发票</p>
+            <div class="upload-box">
+                <input type="file" class="upload-input" />
+                <a class="upload-btn">
+                    <img src="../images/add.png" />
+                    <p>上传</p>
+                </a>
+                <div class="show-upload-img">
+                    <img src="../images/1.jpg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-desc no-border">
+            <p>备注</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <a class="submit-btn">提交</a>
+
+        <div class="select-modal select-level">
+            <ul>
+                <li data="1">等级一</li>
+                <li data="2">等级二</li>
+                <li data="3">等级三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-project">
+            <ul>
+                <li data="1">项目一</li>
+                <li data="2">项目二</li>
+                <li data="3">项目三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+    </div>
+</body>
+
+<script src="../lib/zepto/zepto.min.js"></script>
+<script src="../js/common.js"></script>
+
+<script>
+    $('#level').click(function() {
+        $('.select-level').show();
+    });
+
+    $('.modal-cancel-btn').click(function() {
+        $('.select-modal').hide();
+    });
+
+    $('.select-level ul li').click(function() {
+        $('#level').val($(this).text());
+        $('#levelValue').val($(this).attr('data'));
+        $('.select-level').hide();
+    });
+
+    $('.upload-btn').click(function() {
+        $('.upload-input').click();
+    });
+
+
+    $('.add-reimbursement-btn').click(function() {
+        $('.reimbursement-box').append('<li class="reimbursement-item-box">' +
+            '<div class="reimbursement-op">' +
+            '<span>报销明细</span>' +
+            '<a>删除</a>' +
+            '</div>' +
+            '<div class="form-item">' +
+            '<span class="require">报销金额</span>' +
+            '<input type="text" placeholder="请输入数字" />' +
+            '</div>' +
+            '<div class="form-item choose-btn no-border">' +
+            '<span class="require">关联项目</span>' +
+            '<input type="text" class="project" placeholder="请选择项目或任务" value="" />' +
+            '<input type="hidden" class="project-value" name="memberValue" value="" />' +
+            '</div>' +
+            '<div class="form-desc no-border">' +
+            '<p>费用明细</p>' +
+            '<textarea placeholder="请输入"></textarea>' +
+            '</div>' +
+            '</li>');
+
+        bindEvents();
+    });
+
+    function bindEvents() {
+        $('.reimbursement-op a').on('click', function() {
+            var _this = this;
+            commonPlugins.confrimModal({
+                title: '你确定要删除该报销明细吗？',
+                onOk: function() {
+                    $(_this).closest('li').remove();
+                    commonPlugins.closeConfirmModal();
+                },
+                onCancel: function() {
+                    commonPlugins.closeConfirmModal();
+                }
+            });
+        });
+
+        $('.project').click(function() {
+            $('.select-project').show();
+            $('.select-project').attr('data', $(this).closest('li').index());
+        });
+
+        $('.select-project ul li').click(function() {
+            var index = parseInt($('.select-project').attr('data'));
+            $('.reimbursement-item-box').eq(index).find('.project').val($(this).text());
+            $('.reimbursement-item-box').eq(index).find('.project-value').val($(this).attr('data'));
+            $('.select-project').hide();
+        });
+    };
+
+    bindEvents();
+</script>
+
+</html>

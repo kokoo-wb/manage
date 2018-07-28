@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1、如果支持Google Chrome Frame：GCF，则使用GCF渲染；2、如果系统安装ie8或以上版本，则使用最高版本ie渲染；3、否则，这个设定可以忽略。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 对视窗缩放等级进行限制，使其适应移动端屏幕大小 -->
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 当把这个网页添加到主屏幕时的标题（仅限IOS） -->
+    <meta name="apple-mobile-web-app-title" content="触电-itouchtv">
+    <!-- 添加到主屏幕后全屏显示 -->
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <!--去除safari中number下划线-->
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="../lib/calendar/css/LCalendar.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/recruit_apply.css" />
+
+    <title>招聘申请</title>
+
+    <script>
+        initScreen();
+        window.onresize = function() {
+            initScreen();
+        }
+
+        function defaultfont() {
+            var sw = document.documentElement.clientWidth;
+            var pw = 750;
+            sw = sw > 750 ? 750 : sw < 320 ? 320 : sw;
+            var f = 100 * sw / pw;
+            document.documentElement.style.fontSize = f + 'px';
+        }
+
+        function initScreen() {
+            defaultfont();
+            setTimeout(function() {
+                defaultfont();
+            }, 100);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span>招聘申请</span>
+            <a class="back-btn"></a>
+        </div>
+
+        <div class="form-item-box">
+            <div class="form-item choose-btn no-border">
+                <span class="require">重要等级</span>
+                <input type="text" id="level" placeholder="请选择" value="" />
+                <input type="hidden" id="levelValue" name="levelValue" value="" />
+            </div>
+        </div>
+
+        <div class="form-item-box">
+            <div class="form-item choose-btn">
+                <span>申请岗位</span>
+                <input type="text" id="post" placeholder="请选择" value="" />
+                <input type="hidden" id="postValue" name="postValue" value="" />
+            </div>
+
+            <div class="form-item">
+                <span>申请级别</span>
+                <input type="text" placeholder="请输入" />
+            </div>
+
+            <div class="form-item">
+                <span>需求人数</span>
+                <input type="text" placeholder="请输入" />
+            </div>
+
+            <div class="form-item choose-btn">
+                <span>招聘原因</span>
+                <input type="text" id="reason" placeholder="请选择" value="" />
+                <input type="hidden" id="reasonValue" name="reasonValue" value="" />
+            </div>
+
+            <div class="form-desc">
+                <p>补充人数</p>
+                <textarea placeholder="请输入"></textarea>
+            </div>
+
+            <div class="form-item choose-btn no-border">
+                <span>希望到岗时间</span>
+                <input type="text" placeholder="请选择时间" value="" id="picktime" readonly/>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <span>薪酬上限</span>
+            <input type="text" placeholder="请输入" />
+        </div>
+
+        <div class="form-item">
+            <span>薪酬下限</span>
+            <input type="text" placeholder="请输入" />
+        </div>
+
+        <div class="form-desc">
+            <p>职责与任务描述</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <div class="form-item choose-btn">
+            <span>学历</span>
+            <input type="text" id="education" placeholder="请选择" value="" />
+            <input type="hidden" id="educationValue" name="educationValue" value="" />
+        </div>
+
+        <div class="form-item">
+            <span>年龄</span>
+            <input type="text" placeholder="请输入" />
+        </div>
+
+        <div class="form-item choose-btn">
+            <span>性别</span>
+            <input type="text" id="gender" placeholder="请选择" value="" />
+            <input type="hidden" id="genderValue" name="genderValue" value="" />
+        </div>
+
+        <div class="form-item choose-btn">
+            <span>婚否</span>
+            <input type="text" id="marry" placeholder="请选择" value="" />
+            <input type="hidden" id="marryValue" name="marryValue" value="" />
+        </div>
+
+        <div class="form-desc">
+            <p>职业资格证书</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <div class="form-desc">
+            <p>工作经验</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <div class="form-desc">
+            <p>能力要求</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <div class="form-desc">
+            <p>知识要求</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <div class="form-desc">
+            <p>其他特殊要求</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <div class="form-desc no-border">
+            <p>备注</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <a class="submit-btn">提交</a>
+
+        <div class="select-modal select-level">
+            <ul>
+                <li data="1">等级一</li>
+                <li data="2">等级二</li>
+                <li data="3">等级三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-post">
+            <ul>
+                <li data="1">岗位一</li>
+                <li data="2">岗位二</li>
+                <li data="3">岗位三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-reason">
+            <ul>
+                <li data="1">原因一</li>
+                <li data="2">原因二</li>
+                <li data="3">原因三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-education">
+            <ul>
+                <li data="1">学历一</li>
+                <li data="2">学历二</li>
+                <li data="3">学历三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-gender">
+            <ul>
+                <li data="boy">男</li>
+                <li data="girl">女</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-marry">
+            <ul>
+                <li data="boy">已婚</li>
+                <li data="girl">未婚</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+    </div>
+</body>
+
+<script src="../lib/zepto/zepto.min.js"></script>
+<script src="../lib/calendar/js/LCalendar.min.js"></script>
+
+<script>
+    $('#level').click(function() {
+        $('.select-level').show();
+    });
+
+    $('#post').click(function() {
+        $('.select-post').show();
+    });
+
+    $('#reason').click(function() {
+        $('.select-reason').show();
+    });
+
+    $('#education').click(function() {
+        $('.select-education').show();
+    });
+
+    $('#gender').click(function() {
+        $('.select-gender').show();
+    });
+
+    $('#marry').click(function() {
+        $('.select-marry').show();
+    });
+
+    $('.modal-cancel-btn').click(function() {
+        $('.select-modal').hide();
+    });
+
+    $('.select-level ul li').click(function() {
+        $('#level').val($(this).text());
+        $('#levelValue').val($(this).attr('data'));
+        $('.select-level').hide();
+    });
+
+    $('.select-post ul li').click(function() {
+        $('#post').val($(this).text());
+        $('#postValue').val($(this).attr('data'));
+        $('.select-post').hide();
+    });
+
+    $('.select-reason ul li').click(function() {
+        $('#reason').val($(this).text());
+        $('#reasonValue').val($(this).attr('data'));
+        $('.select-reason').hide();
+    });
+
+    $('.select-education ul li').click(function() {
+        $('#education').val($(this).text());
+        $('#educationValue').val($(this).attr('data'));
+        $('.select-education').hide();
+    });
+
+    $('.select-gender ul li').click(function() {
+        $('#gender').val($(this).text());
+        $('#genderValue').val($(this).attr('data'));
+        $('.select-gender').hide();
+    });
+
+    $('.select-marry ul li').click(function() {
+        $('#marry').val($(this).text());
+        $('#marryValue').val($(this).attr('data'));
+        $('.select-marry').hide();
+    });
+
+
+    var calendar = new LCalendar();
+    calendar.init({
+        'trigger': '#picktime', //标签id
+        'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+        'minDate': (new Date().getFullYear() - 3) + '-' + 1 + '-' + 1, //最小日期
+        'maxDate': (new Date().getFullYear() + 3) + '-' + 12 + '-' + 31 //最大日期
+    });
+</script>
+
+</html>

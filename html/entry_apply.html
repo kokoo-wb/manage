@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 1、如果支持Google Chrome Frame：GCF，则使用GCF渲染；2、如果系统安装ie8或以上版本，则使用最高版本ie渲染；3、否则，这个设定可以忽略。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 对视窗缩放等级进行限制，使其适应移动端屏幕大小 -->
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 当把这个网页添加到主屏幕时的标题（仅限IOS） -->
+    <meta name="apple-mobile-web-app-title" content="触电-itouchtv">
+    <!-- 添加到主屏幕后全屏显示 -->
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <!--去除safari中number下划线-->
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/entry_apply.css" />
+
+    <title>入职申请</title>
+
+    <script>
+        initScreen();
+        window.onresize = function() {
+            initScreen();
+        }
+
+        function defaultfont() {
+            var sw = document.documentElement.clientWidth;
+            var pw = 750;
+            sw = sw > 750 ? 750 : sw < 320 ? 320 : sw;
+            var f = 100 * sw / pw;
+            document.documentElement.style.fontSize = f + 'px';
+        }
+
+        function initScreen() {
+            defaultfont();
+            setTimeout(function() {
+                defaultfont();
+            }, 100);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <span>入职申请</span>
+            <a class="back-btn"></a>
+        </div>
+
+        <div class="form-item-box">
+            <div class="form-item choose-btn no-border">
+                <span class="require">重要等级</span>
+                <input type="text" id="level" placeholder="请选择" value="" />
+                <input type="hidden" id="levelValue" name="levelValue" value="" />
+            </div>
+        </div>
+
+        <div class="form-item">
+            <span class="require">入职者姓名</span>
+            <input type="text" placeholder="请输入" />
+        </div>
+
+        <div class="form-item choose-btn">
+            <span class="require">入职公司</span>
+            <input type="text" id="company" placeholder="请选择" value="" />
+            <input type="hidden" id="companyValue" name="companyValue" value="" />
+        </div>
+
+        <div class="form-item choose-btn">
+            <span class="require">入职部门</span>
+            <input type="text" id="dept" placeholder="请选择" value="" />
+            <input type="hidden" id="deptValue" name="deptValue" value="" />
+        </div>
+
+        <div class="form-item choose-btn">
+            <span class="require">入职类型</span>
+            <input type="text" id="type" placeholder="请选择" value="" />
+            <input type="hidden" id="typeValue" name="typeValue" value="" />
+        </div>
+
+        <div class="form-desc no-border">
+            <p>备注</p>
+            <textarea placeholder="请输入"></textarea>
+        </div>
+
+        <a class="submit-btn">提交</a>
+
+        <div class="select-modal select-level">
+            <ul>
+                <li data="1">等级一</li>
+                <li data="2">等级二</li>
+                <li data="3">等级三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-type">
+            <ul>
+                <li data="1">类型一</li>
+                <li data="2">类型二</li>
+                <li data="3">类型三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-company">
+            <ul>
+                <li data="1">公司一</li>
+                <li data="2">公司二</li>
+                <li data="3">公司三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+
+        <div class="select-modal select-dept">
+            <ul>
+                <li data="1">部门一</li>
+                <li data="2">部门二</li>
+                <li data="3">部门三</li>
+            </ul>
+            <p class="modal-cancel-btn">取消</p>
+        </div>
+    </div>
+</body>
+
+<script src="../lib/zepto/zepto.min.js"></script>
+
+<script>
+    $('#level').click(function() {
+        $('.select-level').show();
+    });
+
+    $('#type').click(function() {
+        $('.select-type').show();
+    });
+
+    $('#company').click(function() {
+        $('.select-company').show();
+    });
+
+    $('#dept').click(function() {
+        $('.select-dept').show();
+    });
+
+    $('.modal-cancel-btn').click(function() {
+        $('.select-modal').hide();
+    });
+
+    $('.select-level ul li').click(function() {
+        $('#level').val($(this).text());
+        $('#levelValue').val($(this).attr('data'));
+        $('.select-level').hide();
+    });
+
+    $('.select-type ul li').click(function() {
+        $('#type').val($(this).text());
+        $('#typeValue').val($(this).attr('data'));
+        $('.select-type').hide();
+    });
+
+    $('.select-company ul li').click(function() {
+        $('#company').val($(this).text());
+        $('#companyValue').val($(this).attr('data'));
+        $('.select-company').hide();
+    });
+
+    $('.select-dept ul li').click(function() {
+        $('#dept').val($(this).text());
+        $('#deptValue').val($(this).attr('data'));
+        $('.select-dept').hide();
+    });
+</script>
+
+</html>

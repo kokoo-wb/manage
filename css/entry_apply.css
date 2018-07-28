@@ -1,0 +1,147 @@
+.container {
+    font-size: 0.3rem;
+}
+
+.header {
+    position: relative;
+    color: #000;
+    font-size: 0.36rem;
+    height: 0.88rem;
+    text-align: center;
+    line-height: 0.88rem;
+    border-bottom: 0.02rem solid #e5e5e5;
+    background: -webkit-linear-gradient(bottom, #f5f6f9, #e9ecf1);
+    background: -o-linear-gradient(bottom, #f5f6f9, #e9ecf1);
+    background: -moz-linear-gradient(bottom, #f5f6f9, #e9ecf1);
+    background: linear-gradient(to bottom, #f5f6f9, #e9ecf1);
+}
+
+.back-btn {
+    background-image: url('../images/nav_icon_back.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: block;
+    width: 0.2rem;
+    height: 0.35rem;
+    position: absolute;
+    left: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form-desc {
+    font-size: 0.32rem;
+    margin: 0 0.3rem;
+    padding: 0.25rem 0;
+    border-bottom: 0.02rem solid #e5e5e5;
+    background: #fff;
+}
+
+.form-desc textarea {
+    width: 100%;
+    height: 1.1rem;
+    margin-top: 0.2rem;
+    font-size: 0.32rem;
+    border: 0;
+    outline: 0;
+    color: #333;
+    resize: none;
+}
+
+.form-item-box {
+    border-bottom: 0.11rem solid #f8f8f8;
+}
+
+.form-item {
+    font-size: 0.32rem;
+    margin: 0 0.3rem;
+    line-height: 0.94rem;
+    height: 0.94rem;
+    border-bottom: 0.02rem solid #e5e5e5;
+    background: #fff;
+}
+
+.form-item input {
+    font-size: 0.32rem;
+    float: right;
+    height: 0.94rem;
+    text-align: right;
+    border: 0;
+    outline: 0;
+    width: 4rem;
+    color: #333;
+    background: #fff;
+}
+
+.form-item span:nth-child(2) {
+    float: right;
+}
+
+.require::after {
+    content: '*';
+    color: #ff6a6a;
+    font-size: 0.32rem;
+}
+
+.choose-btn {
+    position: relative;
+    padding-right: 0.35rem;
+}
+
+.choose-btn::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    display: block;
+    width: 0.15rem;
+    height: 0.25rem;
+    background-image: url('../images/icon-more.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.no-border {
+    border: 0;
+}
+
+.submit-btn {
+    display: block;
+    color: #fff;
+    width: 6.9rem;
+    height: 0.88rem;
+    margin: 0.8rem auto;
+    background: #3a7cf6;
+    font-size: 0.4rem;
+    text-align: center;
+    line-height: 0.88rem;
+    border-radius: 0.15rem;
+}
+
+.select-modal {
+    display: none;
+    background: #fff;
+    position: fixed;
+    width: 7.5rem;
+    top: 0;
+    bottom: 0;
+}
+
+.select-modal ul li {
+    height: 0.88rem;
+    border-bottom: 0.02rem solid #e8e8e8;
+    padding: 0 0.3rem;
+    line-height: 0.88rem;
+    font-size: 0.32rem;
+}
+
+.modal-cancel-btn {
+    width: 7.5rem;
+    height: 0.94rem;
+    background: #fafafa;
+    line-height: 0.88rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}

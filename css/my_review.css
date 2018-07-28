@@ -1,0 +1,137 @@
+.container {
+    font-size: 0.3rem;
+}
+
+.header {
+    position: relative;
+    color: #000;
+    font-size: 0.36rem;
+    height: 0.88rem;
+    text-align: center;
+    line-height: 0.88rem;
+    border-bottom: 0.02rem solid #e5e5e5;
+    background: -webkit-linear-gradient(bottom, #f5f6f9, #e9ecf1);
+    background: -o-linear-gradient(bottom, #f5f6f9, #e9ecf1);
+    background: -moz-linear-gradient(bottom, #f5f6f9, #e9ecf1);
+    background: linear-gradient(to bottom, #f5f6f9, #e9ecf1);
+}
+
+.back-btn {
+    background-image: url('../images/nav_icon_back.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: block;
+    width: 0.2rem;
+    height: 0.35rem;
+    position: absolute;
+    left: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.choose-type {
+    font-size: 0.32rem;
+    color: #999;
+    overflow: hidden;
+    border-bottom: 0.02rem solid #e5e5e5;
+    height: 0.88rem;
+    line-height: 0.88rem;
+}
+
+.choose-type li {
+    cursor: pointer;
+    float: left;
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+
+.choose-type li.active {
+    color: #3a7cf6;
+}
+
+.choose-type li.active::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 0.44rem;
+    height: 0.06rem;
+    bottom: 0;
+    left: 50%;
+    margin-left: -0.22rem;
+    background: #3a7cf6;
+    border-radius: 0.1rem;
+}
+
+.has-review {
+    display: none;
+}
+
+.review-list {
+    padding: 0 0.3rem;
+}
+
+.review-list li {
+    border-bottom: 0.02rem solid #e5e5e5;
+    height: 2.3rem;
+}
+
+.review-header {
+    overflow: hidden;
+    height: 0.8rem;
+    line-height: 0.88rem;
+}
+
+.review-title {
+    font-size: 0.32rem;
+    color: #000;
+}
+
+.review-status {
+    color: #4de1a0;
+    font-size: 0.26rem;
+    float: right;
+}
+
+.status-pass {
+    color: #4de1a0;
+}
+
+.status-undo {
+    color: #999;
+}
+
+.status-doing {
+    color: #fba76a;
+}
+
+.status-reject {
+    color: #fb6a6a;
+}
+
+.review-content {
+    overflow: hidden;
+}
+
+.reviewer {
+    float: left;
+    width: 1.3rem;
+    position: relative;
+    height: 1.1rem;
+}
+
+.reviewer img {
+    width: 0.82rem;
+    height: 0.82rem;
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.review-msg {
+    float: left;
+    color: #666;
+    font-size: 0.26rem;
+    line-height: 0.36rem;
+}
